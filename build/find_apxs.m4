@@ -20,6 +20,7 @@ if test -z "$APXS"; then
            /usr/local/sbin \
            /usr/local/bin \
            /usr/sbin \
+           /opt/apache/httpd/bin/ \
            /usr/bin;
   do
     if test -f "$i/apxs2"; then
