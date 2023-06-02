@@ -80,7 +80,7 @@ AC_DEFUN([AX_PROG_APACHE],
  AC_MSG_CHECKING(if apache is wanted)
  AC_ARG_WITH(apache,
   [  --with-apache=PATH absolute path name of apache server (default is to search httpd in
-    /usr/local/apache/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin),
+    /usr/local/apache/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/opt/apache/httpd/bin/),
     --without-apache to disable apache detection],
   [
     #
@@ -112,10 +112,10 @@ AC_DEFUN([AX_PROG_APACHE],
     # If not specified by caller, search in standard places
     #
     if test -z "$APACHE" ; then
-      AC_PATH_PROG(APACHE, httpd, , /usr/local/apache/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/usr/local/apache2/bin)
+      AC_PATH_PROG(APACHE, httpd, , /usr/local/apache/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/usr/local/apache2/bin:/opt/apache/httpd/bin/)
     fi
     if test -z "$APACHE" ; then
-      AC_PATH_PROG(APACHE, apache2, , /usr/local/apache/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/usr/local/apache2/bin)
+      AC_PATH_PROG(APACHE, apache2, , /usr/local/apache/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/usr/local/apache2/bin:/opt/apache/httpd/bin/)
     fi
     AC_SUBST(APACHE)
     if test -z "$APACHE" ; then
