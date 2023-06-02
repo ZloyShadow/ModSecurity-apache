@@ -152,26 +152,7 @@ AC_DEFUN([AX_PROG_APACHE],
     #
     # Find out if .so modules are in libexec/module.so or modules/module.so
     #
-    if test -f /etc/apache2/envvars
-    then
-        HTTP_ROOT=`. /etc/apache2/envvars && $APACHE -V | grep HTTPD_ROOT | sed -e 's/.*"\(.*\)"/\1/'`
-    else
-        HTTP_ROOT=`$APACHE -V | grep HTTPD_ROOT | sed -e 's/.*"\(.*\)"/\1/'`
-    fi
-    AC_MSG_CHECKING(apache modules)
-    for dir in libexec modules
-    do
-      if test -f $HTTP_ROOT/$dir/mod_env.*
-      then
-        APACHE_MODULES=$dir
-      fi
-    done
-    if test -z "$APACHE_MODULES"
-    then
-      AC_MSG_RESULT(not found)
-    else
-      AC_MSG_RESULT(in $HTTP_ROOT/$APACHE_MODULES)
-    fi
+    APACHE_MODULES="/opt/apache/httpd/modules/"
     AC_SUBST(APACHE_MODULES)
   fi
 ])
